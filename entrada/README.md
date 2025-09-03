@@ -74,6 +74,8 @@ programación específico.
 
 ### Solución problema 2
 
+El padre de la Programación orientada a objetos es **Alan Kay** 
+
 ![Alan Kay](https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2011/10/Alan_Kay.jpg?fit=800%2C533&quality=70&strip=all&ssl=1)
 
 ### Solución problema 3
