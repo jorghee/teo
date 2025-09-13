@@ -30,9 +30,9 @@ double calculateParkingFee(double hours) {
 }
 
 int main() {
-  cout << "Fee for 1.0 hours: $" << calculateParkingFee(1.0) << endl;   
-  cout << "Fee for 3.5 hours: $" << calculateParkingFee(3.5) << endl;
-  cout << "Fee for 24.0 hours: $" << calculateParkingFee(24.0) << endl;
+  cout << "Tarifa para 1.0 h: $" << calculateParkingFee(1.0) << endl;   
+  cout << "Tarifa para 3.5 h: $" << calculateParkingFee(3.5) << endl;
+  cout << "Tarida para 24.0 h: $" << calculateParkingFee(24.0) << endl;
 
   return 0;
 }
