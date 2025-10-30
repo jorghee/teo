@@ -1,4 +1,4 @@
-#include "numerical_integration/TrapezoidalIntegrator.hpp"
+#include "numerical_integration/TrapezoidalIntegrator.h"
 #include <stdexcept>
 #include <numeric>
 #include <vector>

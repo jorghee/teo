@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
-#include "numerical_integration/TrapezoidalIntegrator.hpp"
+#include "numerical_integration/TrapezoidalIntegrator.h"
 
 void demonstrate_integration(
   const TrapezoidalIntegrator& integrator,
