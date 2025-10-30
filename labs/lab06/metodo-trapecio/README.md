@@ -12,14 +12,12 @@ subintervalos de igual ancho, `h`, y aproximar el área bajo la curva
 en cada subintervalo mediante un trapecio.
 
 El ancho de cada subintervalo es:
-$$ h = \frac{b - a}{n} $$
 
-El área de un único trapecio formado por los puntos `(x_i, f(x_i))` y
-`(x_{i+1}, f(x_{i+1}))` es:
-$$ A_i = \frac{f(x_i) + f(x_{i+1})}{2} h $$
+$$ h = \frac{b - a}{n} $$
 
 La integral completa se aproxima como la suma de las áreas de todos
 los trapecios:
+
 $$ \int_{a}^{b} f(x) \,dx \approx \sum_{i=0}^{n-1} A_i = \frac{h}{2} \sum_{i=0}^{n-1} (f(x_i) + f(x_{i+1})) $$
 
 ## 2. Estructura del Proyecto
@@ -170,7 +168,8 @@ try {
   integrator(3.0, 1.0, some_func); // Esto lanzará una excepción
 } catch (const std::invalid_argument& e) {
   std::cerr << "Excepción capturada: " << e.what() << std::endl;
-}```
+}
+```
 
 ## 4. Compilación y Ejecución
 
