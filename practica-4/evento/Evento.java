@@ -1,4 +1,4 @@
-package gestion;
+package evento;
 
 import java.util.ArrayList;
 import java.util.Date;

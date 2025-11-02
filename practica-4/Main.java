@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import gestion.Certificado;
+import evento.Certificado;
 import gestion.ComisionOrganizadora;
-import gestion.Evento;
-import gestion.Inscripcion;
+import evento.Evento;
+import evento.Inscripcion;
 import participante.Docente;
 import participante.Estudiante;
 import participante.Participante;
