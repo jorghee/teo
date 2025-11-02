@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import gestion.Certificado;
 import gestion.ComisionOrganizadora;
 import gestion.Evento;
 import gestion.Inscripcion;
@@ -11,7 +12,6 @@ import participante.Participante;
 import participante.Ponente;
 import participante.PublicoGeneral;
 import persona.Persona;
-
 /**
  * CLASE PRINCIPAL - SEMINARIO INTERNACIONAL DE INGENIERÍA DE SOFTWARE
  * 
@@ -201,7 +201,10 @@ public class Main {
         Inscripcion.filtrarPorTipoParticipante(Estudiante.class);
 
     System.out.println("\nInscripciones de estudiantes: " + inscripcionesEstudiantes.size());
-
+    Certificado cert1 = new Certificado();
+    cert1.generar(ponente1);
+    cert1.generar(docente1);
+    cert1.generar(estudiante1);
     // ========== RESUMEN FINAL ==========
     System.out.println("\n\n╔═══════════════════════════════════════════════════════════════╗");
     System.out.println("║                        RESUMEN FINAL                          ║");
