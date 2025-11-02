@@ -200,11 +200,8 @@ public class Main {
     List<Inscripcion> inscripcionesEstudiantes = 
         Inscripcion.filtrarPorTipoParticipante(Estudiante.class);
 
-    System.out.println("\nInscripciones de estudiantes: " + inscripcionesEstudiantes.size());
-    Certificado cert1 = new Certificado();
-    cert1.generar(ponente1);
-    cert1.generar(docente1);
-    cert1.generar(estudiante1);
+   
+
     // ========== RESUMEN FINAL ==========
     System.out.println("\n\n╔═══════════════════════════════════════════════════════════════╗");
     System.out.println("║                        RESUMEN FINAL                          ║");
