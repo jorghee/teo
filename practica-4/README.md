@@ -1,11 +1,3 @@
-<h1 align="center">
-  <br>
-  Sistema de Gestión de Eventos Académicos
-  <br>
-  <a href="#"><img src="DiagramaDeClases.png" width="200"></a>
-  <br>
-</h1>
-
 <h4 align="center">
   Proyecto académico basado en el <i>III Seminario Internacional de Ingeniería de Software</i>, 
   desarrollado en <b>Java</b> para la gestión de eventos, inscripciones y certificados.
@@ -22,6 +14,13 @@
     <img src="https://img.shields.io/badge/Actividad%20Académica-UNSA-red?style=flat">
   </a>
 </p>
+
+
+<h1 align="center">
+  <br>
+  <a href="#"><img src="DiagramaDeClases.png" width="1200"></a>
+  <br>
+</h1>
 
 ---
 
