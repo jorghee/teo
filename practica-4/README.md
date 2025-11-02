@@ -2,7 +2,7 @@
   <br>
   Sistema de Gestión de Eventos Académicos
   <br>
-  <a href="#"><img src="DiagramaDeClases.png" width="200"></a>
+  <a href="#"><img src="DiagramaDeClases.png" width="1200"></a>
   <br>
 </h1>
 
