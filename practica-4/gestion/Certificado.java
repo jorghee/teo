@@ -1,40 +1,24 @@
 package gestion;
-
 import java.sql.Date;
-
-import participante.Participante;
-import participante.Ponente;
-import participante.PublicoGeneral;
-import participante.*;
 import persona.Persona;
 
-public class Certificado {
+public class Certificado<T extends Persona> {
     private String id;
-    private Persona participante;
-    private String tipo;
-    private Date fechaEmision;    
+    private T per;
+    private Date fechaEmision;
 
-    public Certificado(){};
+    public Certificado(T p){
+        this.id = "CER-" + p.getId();
+        this.fechaEmision = new Date(System.currentTimeMillis());
+        this.per = p;
+    };
 
-    public static void generar(Persona p) {
-        if (p instanceof Ponente) {
-            System.out.println("Certificado de Ponente para " + p.getNombre());
-        }else if (p instanceof Participante) {
-            generar((Participante) p);
-        }else {
-            System.out.println("Participante desconocido" + p.getNombre());
-        }
+    public void generar() {
+        System.out.println("Fecha de Emisión: " + fechaEmision + "\n"+ "- Certificado " + id + " otorgado a " + per.getNombreCompleto() + " por su participacion como " + per.obtenerTipo() );
     }
 
-    private static void generar(Participante p) {
-        if (p instanceof Ponente) {
-            System.out.println("Certificado de Ponente para " + p.getNombre());
-        } else if (p instanceof Docente) {
-            System.out.println("Certificado de Docente para " + p.getNombre());
-        } else if (p instanceof Estudiante) {
-            System.out.println("Certificado de Estudiante para " + p.getNombre());
-        } else {
-            System.out.println("Certificado de Asistencia para " + p.getNombre());
-        } 
+    public void enviarPorEmail() {
+        System.out.println("Enviando certificado " + id + " a " + per.getEmail());
     }
+
 }
