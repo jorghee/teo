@@ -18,21 +18,23 @@ public class Certificado<T extends Persona> {
         this.id = "CER-" + p.getId();
         this.fechaEmision = new Date(System.currentTimeMillis());
         this.per = p;
+        this.generar();
         certificados.add(this);
     };
     
     // Se genera el certificado
     public void generar() {
-        if(certificado != null) {//Evita que se vuelva a generar
-            System.out.println("Certificado ya generado:\n" + certificado);
-            return;
+        if(certificado == null) {//Evita que se vuelva a generar
+            certificado = "Fecha de Emisión: " + fechaEmision + "\n"+ "- Certificado " + id + " otorgado a " + per.getNombreCompleto() + " por su participacion como " + per.obtenerTipo();
         }
-        certificado = "Fecha de Emisión: " + fechaEmision + "\n"+ "- Certificado " + id + " otorgado a " + per.getNombreCompleto() + " por su participacion como " + per.obtenerTipo()
-        System.out.println(certificado);
+        System.out.println(certificado + "/n");
     }
 
     //Se envia al email
     public void enviarPorEmail() { 
+        if(certificado == null) {//Verifica si el certificado fue generado y si no lo genera
+            generar();
+        }
         System.out.println("Enviando certificado " + id + " a " + per.getEmail());
     }
     

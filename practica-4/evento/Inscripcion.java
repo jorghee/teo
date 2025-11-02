@@ -88,7 +88,7 @@ public class Inscripcion {
    * MÉTODO GENÉRICO: Procesa inscripciones con función genérica
    */
   public static <T> List<T> mapearInscripciones(Funcion<Inscripcion, T> funcion) {
-    System.out.println("[GENÉRICO] Mapeando inscripciones...");
+    System.out.println("[GENERICO] Mapeando inscripciones...");
     List<T> resultado = new ArrayList<>();
     for (Inscripcion ins : inscripciones) {
       resultado.add(funcion.aplicar(ins));

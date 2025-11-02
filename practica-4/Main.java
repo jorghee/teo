@@ -200,7 +200,21 @@ public class Main {
     List<Inscripcion> inscripcionesEstudiantes = 
         Inscripcion.filtrarPorTipoParticipante(Estudiante.class);
 
-   
+    // ========== PASO 11: ENVIAR CERTIFICADOS ==========
+    System.out.println("\n\n>>> PASO 11: Certificados");
+    System.out.println("------------------------------------------------------------");
+    
+
+    Certificado cert1 = new Certificado(estudiante1);
+    Certificado cert2 = new Certificado(estudiante2);
+    Certificado cert3 = new Certificado(docente1);
+    Certificado cert4 = new Certificado(ponente1);
+
+    Certificado.enviarTodosPorEmail();
+
+    System.out.println("\nFiltrado:\n");
+
+    Inscripcion.filtrarPorTipoParticipante(Estudiante.class);
 
     // ========== RESUMEN FINAL ==========
     System.out.println("\n\n╔═══════════════════════════════════════════════════════════════╗");
