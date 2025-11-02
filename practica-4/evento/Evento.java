@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
 import participante.Participante;
+import ponente.Ponente;
 import participante.Estudiante;
 import participante.Docente;
 
@@ -13,12 +14,14 @@ public class Evento {
   private Date fecha;
   private String lugar;
   private List<Participante> participantes;
+  private List<Ponente> ponentes;
 
   public Evento(String nombre, Date fecha, String lugar) {
     this.nombre = nombre;
     this.fecha = fecha;
     this.lugar = lugar;
     this.participantes = new ArrayList<>();
+    this.ponentes = new ArrayList<>(); // Inicializar lista de ponentes
   }
 
   // ========== MÉTODOS BÁSICOS ==========
@@ -28,6 +31,12 @@ public class Evento {
     System.out.println(participante.getNombreCompleto() +
         " registrado en " + nombre);
   }
+
+  public void registrarAsistente(Ponente ponente) {
+    ponentes.add(ponente);
+    System.out.println(ponente.getNombreCompleto() + " registrado como ponente en " + nombre);
+  }
+
 
   public void iniciarEvento() {
     System.out.println("Iniciando evento: " + nombre);
@@ -41,6 +50,10 @@ public class Evento {
   public List<? extends Participante> obtenerParticipantes() {
     System.out.println("[COVARIANZA] Retornando lista de lectura");
     return participantes;
+  }
+
+  public List<Ponente> obtenerPonentes() {
+    return ponentes;
   }
 
   // ========== COVARIANZA - EJEMPLO 2 ==========

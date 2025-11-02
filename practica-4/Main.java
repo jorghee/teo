@@ -9,9 +9,9 @@ import evento.Inscripcion;
 import participante.Docente;
 import participante.Estudiante;
 import participante.Participante;
-import participante.Ponente;
 import participante.PublicoGeneral;
 import persona.Persona;
+import ponente.Ponente;
 /**
  * CLASE PRINCIPAL - SEMINARIO INTERNACIONAL DE INGENIERÍA DE SOFTWARE
  * 
