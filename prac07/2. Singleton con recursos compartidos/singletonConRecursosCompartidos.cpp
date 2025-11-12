@@ -32,3 +32,24 @@ public:
         archivo << "[" << buffer << "] " << mensaje << endl;
     }
 };
+
+Logger* Logger::instancia = nullptr;
+
+void funcionA() {
+    Logger::getInstance()->log("Mensaje desde funcionA()");
+}
+
+void funcionB() {
+    Logger::getInstance()->log("Mensaje desde funcionB()");
+}
+
+int main() {
+    Logger::getInstance()->log("Inicio del programa");
+    funcionA();
+    funcionB();
+    Logger::getInstance()->log("Fin del programa");
+
+    cout << "Logs escritos en bitacora.log" << endl;
+    return 0;
+}
+
