@@ -22,23 +22,23 @@ public:
     void conectar() {
         if (!conectada) {
             conectada = true;
-            std::cout << "Conectada a " << servidor << ":" << puerto << "\n";
+            cout << "Conectada a " << servidor << ":" << puerto << "\n";
         } else {
-            std::cout << "Ya hay una conexion activa\n";
+            cout << "Ya hay una conexion activa\n";
         }
     }
 
     void desconectar() {
         if (conectada) {
             conectada = false;
-            std::cout << "Conexion cerrada\n";
+            cout << "Conexion cerrada\n";
         } else {
-            std::cout << "No hay conexion activa\n";
+            cout << "No hay conexion activa\n";
         }
     }
 
     void estado() const {
-        std::cout << (conectada ? "Conectado" : "Desconectado") << "\n";
+        cout << (conectada ? "Conectado" : "Desconectado") << "\n";
     }
 
 };
