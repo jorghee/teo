@@ -36,18 +36,18 @@ public:
 Logger* Logger::instancia = nullptr;
 
 void funcionA() {
-    Logger::getInstance()->log("Mensaje desde funcionA()");
+    Logger::getInstance()->log("Mensaje desde funcionA: Hola desde A");
 }
 
 void funcionB() {
-    Logger::getInstance()->log("Mensaje desde funcionB()");
+    Logger::getInstance()->log("Mensaje desde funcionB: Hola desde B");
 }
 
 int main() {
-    Logger::getInstance()->log("Inicio del programa");
+    Logger::getInstance()->log("Inicio");
     funcionA();
     funcionB();
-    Logger::getInstance()->log("Fin del programa");
+    Logger::getInstance()->log("Fin");
 
     cout << "Logs escritos en bitacora.log" << endl;
     return 0;
