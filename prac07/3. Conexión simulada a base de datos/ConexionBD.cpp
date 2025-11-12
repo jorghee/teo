@@ -3,10 +3,10 @@
 
 class ConexionBD {
 private:
-    static ConexionBD* instancia;  
-    bool conectada;                 
+    static ConexionBD* sgtn;  
+    bool conectado;                 
 
-    ConexionBD() : conectada(false) {}
+    ConexionBD() : conectado(false) {}
 
 public:
 
