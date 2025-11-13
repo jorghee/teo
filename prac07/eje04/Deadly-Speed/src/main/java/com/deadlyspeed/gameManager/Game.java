@@ -19,6 +19,9 @@ public class Game {
   private Player playerBlue, playerRed;
 
   public Game(String playerBlue, String playerRed, Stage stage) {
+    // Initialize game state with Singleton
+    ControlJuego.getInstance().iniciarJuego(playerBlue, playerRed);
+    
     // We create the random game that we have implemented
     RandomPlay randomPlay = new RandomPlay(playerBlue, playerRed);
     RandomBattle randomBattle = new RandomBattle();
@@ -58,6 +61,10 @@ public class Game {
 
     Text win = new Text("You won, " + winner + "!");
 
+    // Display game state from Singleton
+    Text gameState = new Text(ControlJuego.getInstance().getEstadoJuego());
+    gameState.getStyleClass().add("report");
+
     Text isLeague = new Text("Venture into the champions league");
     isLeague.getStyleClass().add("report");
 
@@ -66,14 +73,17 @@ public class Game {
 
     // Tenemos la opcion de jugar otra partida
     Button newGame = new Button("New game");
-    newGame.setOnAction(e -> stage.setScene(Lobby.getInstance(stage).getMainLobby()));
+    newGame.setOnAction(e -> {
+      ControlJuego.getInstance().reiniciarJuego();
+      stage.setScene(Lobby.getInstance(stage).getMainLobby());
+    });
 
     // Tambien podemos abandonar el juego
     Button quit = new Button("Exit game");
     quit.setOnAction(e -> stage.close());
 
     VBox vbox = new VBox();
-    vbox.getChildren().addAll(win, isLeague, newGame, quit);
+    vbox.getChildren().addAll(win, gameState, isLeague, newGame, quit);
     vbox.setAlignment(Pos.CENTER);
 
     // Crear la escena de victoria
