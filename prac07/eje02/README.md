@@ -1,3 +1,5 @@
+# Ejercicio 02: Singleton con Recursos Compartidos
+
 <h2 align="center">
   Ejercicio 02 (Intermedio): Singleton con recursos compartidos
   <p align="center">

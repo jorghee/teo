@@ -1,4 +1,4 @@
-# Ejercicio 04 - Patrón Singleton en un juego(Deadly Speed)
+# Ejercicio 04: Singleton en un Juego (Deadly Speed)
 
 ## Descripción del Ejercicio
 
