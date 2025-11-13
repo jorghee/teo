@@ -56,6 +56,10 @@ public class RandomPlay implements Play<RandomBattle, Scene> {
     troopCurrent = this.battle.getTroopBlue();
     playerCurrent = player1;
 
+    // Initialize lives in ControlJuego Singleton
+    com.deadlyspeed.gameManager.ControlJuego.getInstance().setVidas(player1, this.battle.getTroopBlue().size());
+    com.deadlyspeed.gameManager.ControlJuego.getInstance().setVidas(player2, this.battle.getTroopRed().size());
+
     // Search the warrior skins within of the GridPane to initialize the skins field
     setSkins();
 
@@ -218,6 +222,7 @@ public class RandomPlay implements Play<RandomBattle, Scene> {
 
     if(win < 50.00 && speed < 2) {
       troopCurrent.remove(victim);
+      com.deadlyspeed.gameManager.ControlJuego.getInstance().reducirVida(playerCurrent);
       battle.getMessage().setText(playerCurrent + ", tu guerrero ha muerto luchando con honor hasta el final");
       battle.getMap().add(attacker.getSkin(), y, x);
 
@@ -228,9 +233,11 @@ public class RandomPlay implements Play<RandomBattle, Scene> {
 
     if(win == 50.00) {
       troopCurrent.remove(victim);
+      com.deadlyspeed.gameManager.ControlJuego.getInstance().reducirVida(playerCurrent);
 
       change();
       troopCurrent.remove(attacker);
+      com.deadlyspeed.gameManager.ControlJuego.getInstance().reducirVida(playerCurrent);
       change();
 
       battle.getMessage().setText("Batalla epica, murieron con honor, mis respetos.");
@@ -397,6 +404,7 @@ public class RandomPlay implements Play<RandomBattle, Scene> {
     change();
     if(attacker.getSpeed() < 2) {
       troopCurrent.remove(attacker);
+      com.deadlyspeed.gameManager.ControlJuego.getInstance().reducirVida(playerCurrent);
 
       // We do not change the position of the victim because the victim does not move
       battle.getMap().add(victim.getSkin(), currentY, currentX);
