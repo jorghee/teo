@@ -68,3 +68,14 @@ replay_pid*
 # Personal directories
 books/
 assignments/
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Eclipse
+.classpath
+.project
+.settings/

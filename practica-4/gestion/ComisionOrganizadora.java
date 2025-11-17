@@ -15,12 +15,28 @@ import participante.Participante;
 public class ComisionOrganizadora<T extends Persona> {
   private String nombreComision;
   private List<T> miembros;
+  private String nombreEvento;
+  private java.util.Date fecha;
 
   public ComisionOrganizadora(String nombreComision) {
     this.nombreComision = nombreComision;
     this.miembros = new ArrayList<>();
+    this.nombreEvento = "";
+    this.fecha = new java.util.Date();
     System.out.println("=== COMISIÓN ORGANIZADORA CREADA ===");
     System.out.println("Nombre: " + nombreComision);
+    System.out.println("=====================================\n");
+  }
+
+  public ComisionOrganizadora(String nombreComision, String nombreEvento, java.util.Date fecha) {
+    this.nombreComision = nombreComision;
+    this.miembros = new ArrayList<>();
+    this.nombreEvento = nombreEvento;
+    this.fecha = fecha;
+    System.out.println("=== COMISIÓN ORGANIZADORA CREADA ===");
+    System.out.println("Nombre: " + nombreComision);
+    System.out.println("Evento: " + nombreEvento);
+    System.out.println("Fecha: " + fecha);
     System.out.println("=====================================\n");
   }
 
@@ -28,6 +44,11 @@ public class ComisionOrganizadora<T extends Persona> {
   public void agregarMiembro(T persona) {
     miembros.add(persona);
     System.out.println("[AGREGADO] " + persona.obtenerTipo() + ": " + persona.getNombreCompleto());
+  }
+
+  // Método para registrar una persona (alias de agregarMiembro)
+  public void registrarPersona(T persona) {
+    agregarMiembro(persona);
   }
 
   // ========== COVARIANZA - EJEMPLO 1 ==========
@@ -108,9 +129,67 @@ public class ComisionOrganizadora<T extends Persona> {
     System.out.println("=============================================\n");
   }
 
+  // ========== MÉTODO GENÉRICO - NOTIFICAR GRUPO ==========
+  /**
+   * Método genérico que notifica a un grupo específico de personas
+   * Demuestra uso de bounded type parameter
+   */
+  public <S extends Persona> void notificarGrupo(List<S> grupo, String mensaje) {
+    System.out.println("\n[NOTIFICACIÓN GENÉRICA] Enviando mensaje a grupo...");
+    System.out.println("Mensaje: \"" + mensaje + "\"");
+    System.out.println("Destinatarios: " + grupo.size());
+    System.out.println("------------------------------------------------------------");
+    for (S persona : grupo) {
+      System.out.println("  ✉ Enviando a: " + persona.getNombreCompleto() + 
+                         " (" + persona.obtenerTipo() + ") - " + persona.getEmail());
+    }
+    System.out.println("------------------------------------------------------------");
+    System.out.println("✓ Notificaciones enviadas exitosamente\n");
+  }
+
+  // ========== MÉTODOS DE GESTIÓN ==========
+  public void generarCertificados() {
+    System.out.println("\n[GENERANDO CERTIFICADOS] Para todos los miembros...");
+    for (T miembro : miembros) {
+      System.out.println("  ✓ Certificado generado para: " + miembro.getNombreCompleto());
+    }
+    System.out.println("Total certificados generados: " + miembros.size() + "\n");
+  }
+
+  public void obtenerEstadisticas() {
+    System.out.println("\n========== ESTADÍSTICAS DEL EVENTO ==========");
+    System.out.println("Evento: " + nombreEvento);
+    System.out.println("Comisión: " + nombreComision);
+    System.out.println("Total de miembros registrados: " + miembros.size());
+    
+    // Contar por tipo
+    int estudiantes = 0, docentes = 0, ponentes = 0, otros = 0;
+    for (T miembro : miembros) {
+      String tipo = miembro.obtenerTipo();
+      if (tipo.contains("Estudiante")) estudiantes++;
+      else if (tipo.contains("Docente")) docentes++;
+      else if (tipo.contains("Ponente")) ponentes++;
+      else otros++;
+    }
+    
+    System.out.println("  - Estudiantes: " + estudiantes);
+    System.out.println("  - Docentes: " + docentes);
+    System.out.println("  - Ponentes: " + ponentes);
+    System.out.println("  - Otros: " + otros);
+    System.out.println("=============================================\n");
+  }
+
   // ========== GETTERS ==========
   public String getNombreComision() {
     return nombreComision;
+  }
+
+  public String getNombreEvento() {
+    return nombreEvento;
+  }
+
+  public java.util.Date getFecha() {
+    return fecha;
   }
 
   public int getTotalMiembros() {
